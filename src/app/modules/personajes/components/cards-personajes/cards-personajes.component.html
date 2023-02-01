@@ -1,0 +1,9 @@
+<mat-card class="personajes-card rounded m-3" (click)="clickSobreCard()">
+  <mat-card-header>
+    <mat-card-title>{{vw.name}}</mat-card-title>
+    <mat-card-subtitle>{{vw.species}}</mat-card-subtitle>
+    <div mat-card-avatar><img mat-card-avatar [ngSrc]="vw.image" width="100" height="100"></div>
+  </mat-card-header>
+
+  <img mat-card-image [ngSrc]="vw.image" width="300" height="300" class="rounded" />
+</mat-card>

@@ -1,0 +1,14 @@
+.personajes-card {
+  max-width: 300px;
+  color: white;
+}
+
+.personajes-card:hover {
+  background-color: #9c27b0;
+  cursor: pointer;
+}
+
+.personajes-header-image,
+.img {
+  background-size: cover;
+}
