@@ -15,14 +15,14 @@ export interface VwPersonajes {
   type: string;
   gender: string;
   image: string;
+  location: {
+    name: string;
+    url: string;
+  };
   episode: string[];
   created: Date;
-  // origin: {
-  //   name: 'Earth (C-137)';
-  //   url: 'https://rickandmortyapi.com/api/location/1';
-  // };
-  // location: {
-  //   name: 'Citadel of Ricks';
-  //   url: 'https://rickandmortyapi.com/api/location/3';
-  // };
+  origin: {
+    name: string;
+    url: string;
+  };
 }

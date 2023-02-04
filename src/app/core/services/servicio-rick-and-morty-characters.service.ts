@@ -7,7 +7,7 @@ import { RespuestaBusquedaPersonajesModel } from '../models';
 @Injectable({
   providedIn: 'root',
 })
-export class ServicioRickAndMorty {
+export class ServicioRickAndMortyCharacters {
   urlApi: string = 'https://rickandmortyapi.com/api';
   urlGetAllCharacters: string = '/character';
 

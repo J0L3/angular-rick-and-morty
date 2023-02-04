@@ -1,6 +1,6 @@
 import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { VwPersonajes } from 'src/app/core/models';
-import { ServicioRickAndMorty } from 'src/app/core/services';
+import { ServicioRickAndMortyCharacters } from 'src/app/core/services';
 
 @Component({
   selector: 'app-cards-personajes',
@@ -12,7 +12,7 @@ export class CardsPersonajesComponent implements OnInit {
   totalBusqueda!: number;
   paginaActual: number = 1;
 
-  constructor(private servicio: ServicioRickAndMorty, cdr: ChangeDetectorRef) {}
+  constructor(private servicio: ServicioRickAndMortyCharacters) {}
 
   ngOnInit(): void {
     this.cargarPersonajes(this.paginaActual);
@@ -28,7 +28,36 @@ export class CardsPersonajesComponent implements OnInit {
       error: (e) => console.error(e),
     });
   }
-  clickSobreCard() {
+
+  public getClassStatus(status: string): string {
+    if (status == 'Alive') return 'green';
+    if (status == 'Dead') return 'red';
+    return 'gray';
+  }
+
+  public getAvatar(especie: string, genero: string) {
+    if (especie == 'Human' && genero == 'Male') return 'avatar-male';
+    if (especie == 'Human' && genero == 'Female') return 'avatar-female';
+    if (especie == 'Alien') return 'avatar-alien';
+    if (especie == 'Humanoid') return 'avatar-humanoid';
+    if (especie == 'Robot') return 'avatar-robot';
+    if (especie == 'Animal') return 'avatar-animal';
+    if (especie == 'Disease') return 'avatar-virus';
+    if (especie == 'Cronenberg') return 'avatar-cronenberg';
+    if (especie == 'Poopybutthole') return 'avatar-poopybutthole';
+    if (especie == 'Mythological Creature')
+      return 'avatar-mythological-creature';
+
+    return 'avatar-unknown';
+  }
+
+  public getClassStatusForAvatar(status: string): string {
+    if (status == 'Alive') return 'bg-green';
+    if (status == 'Dead') return 'bg-red';
+    return 'bg-gray';
+  }
+
+  clickSobreNombrePersonaje() {
     console.log('hey');
   }
 }

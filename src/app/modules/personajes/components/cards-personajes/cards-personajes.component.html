@@ -1,19 +1,52 @@
 <div class="d-flex justify-content-center flex-sm-wrap w-100 h-100">
   <div *ngFor="let vw of dataSource">
-    <mat-card class="personajes-card rounded m-3" (click)="clickSobreCard()">
-      <mat-card-header>
-        <mat-card-title>{{ vw.name }}</mat-card-title>
-        <mat-card-subtitle>{{ vw.species }}</mat-card-subtitle>
-        <div mat-card-avatar>
-          <img mat-card-avatar [src]="vw.image" />
-        </div>
-      </mat-card-header>
+    <mat-card class="personajes-card rounded m-3">
+      <div class="header-card">
+        <!-- Avatar -->
+        <div class="character-species-imagens">
+          <img mat-card-image [src]="vw.image" class="rounded-top" />
 
-      <img mat-card-image [src]="vw.image" class="rounded" />
+          <img
+            class="avatar {{ getClassStatusForAvatar(vw.status) }}  {{
+              getAvatar(vw.species, vw.gender)
+            }}"
+          />
+        </div>
+      </div>
+
+      <div class="body-card">
+        <div class="character-general-info">
+          <!-- Nombre personaje -->
+          <div class="character-name-info">
+            <h1 class="click-sobre" (click)="clickSobreNombrePersonaje()">
+              {{ vw.name }}
+            </h1>
+          </div>
+
+          <!-- Estado del personaje -->
+          <div class="character-status-info">
+            <i class="ph-circle-fill" [class]="getClassStatus(vw.status)"></i>
+            <span>{{ vw.status }} - {{ vw.species }}</span>
+          </div>
+
+          <!-- Última localización conocida -->
+          <div class="more-info">
+            <span>Last location know:</span>
+            <p>{{ vw.location.name }}</p>
+          </div>
+
+          <!-- Primera aparición -->
+          <div class="more-info">
+            <span>First seen in:</span>
+            <p>{{ vw.origin.name }}</p>
+          </div>
+        </div>
+      </div>
     </mat-card>
   </div>
 </div>
 
+<!-- Botonera -->
 <button
   mat-fab
   color="accent"

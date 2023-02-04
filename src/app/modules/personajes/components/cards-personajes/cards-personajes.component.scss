@@ -1,18 +1,111 @@
+// Otros
+h1 {
+  font-weight: 500;
+  margin: 0 auto;
+}
+
+// Card
 .personajes-card {
   max-width: 300px;
   color: white;
 }
 
-.personajes-card:hover {
-  background-color: #9c27b0;
+// Header Card
+.character-species-imagens {
+  position: relative;
+}
+
+// Header Card Avatar
+.avatar {
+  border-radius: 100%;
+  background-size: cover;
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  top: 2%;
+  right: 2%;
+  background-color: none;
+}
+
+.avatar-alien {
+  background-image: url("../../../../../assets/images/alien.png");
+}
+
+.avatar-male {
+  background-image: url("../../../../../assets/images/gender-male.png");
+}
+
+.avatar-female {
+  background-image: url("../../../../../assets/images/gender-female.png");
+}
+
+.avatar-humanoid {
+  background-image: url("../../../../../assets/images/humanoid.png");
+}
+
+.avatar-mythological-creature {
+  background-image: url("../../../../../assets/images/troll.png");
+}
+.avatar-robot {
+  background-image: url("../../../../../assets/images/robot.png");
+}
+
+.avatar-animal {
+  background-image: url("../../../../../assets/images/dog.png");
+}
+
+.avatar-unknown {
+  background-image: url("../../../../../assets/images/question.png");
+}
+
+.avatar-virus {
+  background-image: url("../../../../../assets/images/virus.png");
+}
+
+.avatar-cronenberg {
+  background-image: url("../../../../../assets/images/mantis.png");
+}
+
+.avatar-poopybutthole {
+  background-image: url("../../../../../assets/images/mierda.png");
+}
+
+// Body card
+.body-card {
+  margin-top: 2%;
+  margin-left: 4%;
+}
+
+.click-sobre:hover {
+  color: #69f0ae;
   cursor: pointer;
 }
 
-.personajes-header-image,
-.img {
-  background-size: cover;
+// Card info status
+.character-status-info {
+  margin-top: 2%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.character-status-info i {
+  margin-right: 3%;
+}
+// Body de la card
+.more-info {
+  margin-top: 2%;
+  font-weight: 300;
 }
 
+.more-info span {
+  color: rgb(139, 139, 139);
+}
+.more-info p:hover {
+  color: #9c27b0;
+  cursor: pointer;
+}
+
+// Botonera
 .boton-subir-arriba {
   position: fixed;
   bottom: 2%;
@@ -23,4 +116,29 @@
   position: fixed;
   bottom: 2%;
   left: 1.5%;
+}
+
+// Colores
+.red {
+  color: red;
+}
+
+.green {
+  color: green;
+}
+
+.gray {
+  color: gray;
+}
+
+.bg-red {
+  background-color: rgba(255, 0, 0, 0.56);
+}
+
+.bg-green {
+  background-color: rgba(0, 128, 0, 0.56);
+}
+
+.bg-gray {
+  background-color: rgba(93, 93, 93, 0.56);
 }
