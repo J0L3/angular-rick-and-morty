@@ -4,6 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { HeaderComponent } from './components';
 import { MaterialModule } from './material.module';
 import { ScrollingModule } from '@angular/cdk/scrolling';
+import { InfiniteScrollModule } from 'ngx-infinite-scroll';
 
 const MODULES = [
   MaterialModule,
@@ -11,6 +12,7 @@ const MODULES = [
   ScrollingModule,
   NgOptimizedImage,
   HeaderComponent,
+  InfiniteScrollModule,
 ];
 
 @NgModule({

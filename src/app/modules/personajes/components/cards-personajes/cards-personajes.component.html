@@ -1,4 +1,12 @@
-<div class="d-flex justify-content-center flex-sm-wrap w-100 h-100">
+<div
+  class="d-flex justify-content-center flex-sm-wrap w-100 h-100"
+  infiniteScroll
+  [infiniteScrollDistance]="1"
+  [infiniteScrollThrottle]="50"
+  [infiniteScrollUpDistance]="2"
+  [alwaysCallback]="true"
+  (scrolled)="onScroll()"
+>
   <div *ngFor="let vw of dataSource">
     <mat-card class="personajes-card rounded m-3">
       <div class="header-card">
@@ -51,19 +59,7 @@
   mat-fab
   color="accent"
   class="boton-subir-arriba"
-  (click)="cargarPersonajes(paginaActual + 1)"
+  (click)="scrollToTop()"
 >
-  <mat-icon>arrow_right</mat-icon>
+  <mat-icon>arrow_upward</mat-icon>
 </button>
-
-<button
-  mat-fab
-  color="accent"
-  class="boton-pag-anterior"
-  *ngIf="paginaActual != 1"
-  (click)="cargarPersonajes(paginaActual - 1)"
->
-  <mat-icon>arrow_left</mat-icon>
-</button>
-
-<!-- <mat-icon>arrow_upward</mat-icon> -->

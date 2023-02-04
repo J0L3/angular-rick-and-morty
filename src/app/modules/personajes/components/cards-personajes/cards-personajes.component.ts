@@ -11,22 +11,35 @@ export class CardsPersonajesComponent implements OnInit {
   dataSource: VwPersonajes[] = [];
   totalBusqueda!: number;
   paginaActual: number = 1;
+  paginasTotales: number = 2;
+  windowScrolled!: boolean;
 
   constructor(private servicio: ServicioRickAndMortyCharacters) {}
 
   ngOnInit(): void {
+    window.addEventListener('scroll', () => {
+      this.windowScrolled = window.pageYOffset !== 0;
+    });
+
     this.cargarPersonajes(this.paginaActual);
   }
 
+  onScroll() {
+    this.cargarPersonajes(this.paginaActual + 1);
+  }
+
   public cargarPersonajes(page: number) {
-    this.servicio.getAllCharacters(page).subscribe({
-      next: (v) => {
-        this.dataSource = v.results;
-        this.totalBusqueda = v.count;
-        this.paginaActual = page;
-      },
-      error: (e) => console.error(e),
-    });
+    if (this.paginasTotales >= page) {
+      this.servicio.getAllCharacters(page).subscribe({
+        next: (v) => {
+          this.dataSource.push(...v.results);
+          this.totalBusqueda = v.info.count;
+          this.paginaActual = page;
+          this.paginasTotales = v.info.pages;
+        },
+        error: (e) => console.error(e),
+      });
+    }
   }
 
   public getClassStatus(status: string): string {
@@ -59,5 +72,9 @@ export class CardsPersonajesComponent implements OnInit {
 
   clickSobreNombrePersonaje() {
     console.log('hey');
+  }
+
+  scrollToTop(): void {
+    window.scrollTo(0, 0);
   }
 }
