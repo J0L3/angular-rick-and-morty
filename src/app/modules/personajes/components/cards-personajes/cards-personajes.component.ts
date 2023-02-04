@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { VwPersonajes } from 'src/app/core/models';
 import { ServicioRickAndMorty } from 'src/app/core/services';
 
@@ -8,12 +8,26 @@ import { ServicioRickAndMorty } from 'src/app/core/services';
   styleUrls: ['./cards-personajes.component.scss'],
 })
 export class CardsPersonajesComponent implements OnInit {
-  @Input() vw: VwPersonajes = {} as VwPersonajes;
+  dataSource: VwPersonajes[] = [];
+  totalBusqueda!: number;
+  paginaActual: number = 1;
 
-  constructor() {}
+  constructor(private servicio: ServicioRickAndMorty, cdr: ChangeDetectorRef) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.cargarPersonajes(this.paginaActual);
+  }
 
+  public cargarPersonajes(page: number) {
+    this.servicio.getAllCharacters(page).subscribe({
+      next: (v) => {
+        this.dataSource = v.results;
+        this.totalBusqueda = v.count;
+        this.paginaActual = page;
+      },
+      error: (e) => console.error(e),
+    });
+  }
   clickSobreCard() {
     console.log('hey');
   }
