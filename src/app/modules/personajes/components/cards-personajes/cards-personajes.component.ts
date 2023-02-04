@@ -49,8 +49,7 @@ export class CardsPersonajesComponent implements OnInit {
   }
 
   public getAvatar(especie: string, genero: string) {
-    if (especie == 'Human' && genero == 'Male') return 'avatar-male';
-    if (especie == 'Human' && genero == 'Female') return 'avatar-female';
+    if (especie == 'Human') return 'avatar-human';
     if (especie == 'Alien') return 'avatar-alien';
     if (especie == 'Humanoid') return 'avatar-humanoid';
     if (especie == 'Robot') return 'avatar-robot';

@@ -18,6 +18,8 @@
             class="avatar {{ getClassStatusForAvatar(vw.status) }}  {{
               getAvatar(vw.species, vw.gender)
             }}"
+            [matTooltip]="vw.species + ' ' + vw.status"
+            matTooltipPosition="above"
           />
         </div>
       </div>
@@ -25,16 +27,18 @@
       <div class="body-card">
         <div class="character-general-info">
           <!-- Nombre personaje -->
-          <div class="character-name-info">
-            <h1 class="click-sobre" (click)="clickSobreNombrePersonaje()">
-              {{ vw.name }}
-            </h1>
-          </div>
+          <div>
+            <div class="character-name-info">
+              <h1 class="click-sobre" (click)="clickSobreNombrePersonaje()">
+                {{ vw.name }}
+              </h1>
+            </div>
 
-          <!-- Estado del personaje -->
-          <div class="character-status-info">
-            <i class="ph-circle-fill" [class]="getClassStatus(vw.status)"></i>
-            <span>{{ vw.status }} - {{ vw.species }}</span>
+            <!-- Estado del personaje -->
+            <!-- <div class="character-status-info">
+              <i class="ph-circle-fill" [class]="getClassStatus(vw.status)"></i>
+              <span>{{ vw.status }} - {{ vw.species }}</span>
+            </div> -->
           </div>
 
           <!-- Última localización conocida -->

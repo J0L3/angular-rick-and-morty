@@ -20,6 +20,7 @@ import { MatSortModule } from '@angular/material/sort';
 import { MatTableModule } from '@angular/material/table';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatTooltipModule } from '@angular/material/tooltip';
 
 const materialModules = [
   MatButtonModule,
@@ -42,6 +43,7 @@ const materialModules = [
   MatFormFieldModule,
   MatButtonToggleModule,
   MatGridListModule,
+  MatTooltipModule,
 ];
 
 @NgModule({
