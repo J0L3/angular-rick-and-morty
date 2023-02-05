@@ -29,12 +29,13 @@ export class CardsPersonajesComponent implements OnInit {
   }
 
   public cargarPersonajes(page: number) {
+    this.paginaActual = page;
+
     if (this.paginasTotales >= page) {
       this.servicio.getAllCharacters(page).subscribe({
         next: (v) => {
           this.dataSource.push(...v.results);
           this.totalBusqueda = v.info.count;
-          this.paginaActual = page;
           this.paginasTotales = v.info.pages;
         },
         error: (e) => console.error(e),
@@ -48,7 +49,7 @@ export class CardsPersonajesComponent implements OnInit {
     return 'gray';
   }
 
-  public getAvatar(especie: string, genero: string) {
+  public getAvatar(especie: string) {
     if (especie == 'Human') return 'avatar-human';
     if (especie == 'Alien') return 'avatar-alien';
     if (especie == 'Humanoid') return 'avatar-humanoid';
